@@ -1,0 +1,28 @@
+<div class="container-fluid">
+<div class="search container main-container">
+  <input type="text" class="form-control" placeholder="Search the recipe..... " [(ngModel)]="search" (ngModelChange)="getRecipeOfApi($event)">
+</div>
+
+<div>
+  <div *ngIf="search">
+      <div class="card-columns">
+    <div *ngFor="let recipes of list">
+      
+        <div class="card animated fadeIn fast" >
+            <img class="card-img-top img-fluid" src={{recipes.thumbnail}} >
+            <div class="card-body">
+              <h4 class="card-title">{{recipes.title}}</h4>
+              <p class="card-text"> Ingredients: </p>
+              <small class="text-muted">{{recipes.ingredients}}</small>
+              <button
+              type="button" class="btn btn-outline-primary btn-block">
+              <a [attr.href]="recipes.href">See more..</a>
+            </button>
+            </div>
+          </div>
+      </div>
+      
+    </div>
+  </div>
+</div>
+</div>
